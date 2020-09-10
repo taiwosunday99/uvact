@@ -24,15 +24,6 @@ class UserTable extends Component {
     }
   
   
-//  componentDidMount(users) {
-//   users  = this.props.users
-//   console.log(users)
-    
-//     this.setState({
-//       users: users
-//     })
-  
-//  }
 
   objToImg = (imgObj) => {
     if (!!imgObj === false) {
@@ -58,16 +49,6 @@ class UserTable extends Component {
   };
   
  
-
-  // deleteUser = (user) => {
-  //   let newUsers = users.filter((usrToDel) => {
-  //     return (
-        // user.userName !== usrToDel.userName &&
-  //       user.userEmail !== usrToDel.userEmail
-  //     );
-  //   });
-  //   setUsers(newUsers);
-  // };
   render() {
     let { users } = this.state;
     console.log(users);
@@ -147,8 +128,6 @@ class UserTable extends Component {
 }
 
 const mapStateToProps = (state) => {
-  // const newUsers = state.user.users;
-  // console.log(newUsers);
   return {
     users: state.user.users
   };
