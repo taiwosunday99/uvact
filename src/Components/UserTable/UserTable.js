@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { deleteUser } from "../../store/actions/userActions";
 import logo from "../../logo.svg";
 import { NavLink } from "react-router-dom";
-
+import '../UserForm/UserForm.css';
 class UserTable extends Component {
   constructor(props) {
     super(props);
@@ -21,6 +21,14 @@ class UserTable extends Component {
         users: [...this.props.users]
       })   
     console.log(user);
+    }
+
+    deleteAllUsers = (users) => {
+      users = this.props.users;
+      this.setState({
+        users: []
+      })
+      console.log(users)
     }
   
   
@@ -50,8 +58,9 @@ class UserTable extends Component {
   
  
   render() {
+    
     let { users } = this.state;
-    console.log(users);
+    // console.log(users);
     return (
       <div>
         <form>
@@ -113,11 +122,16 @@ class UserTable extends Component {
                         Delete
                       </button>
                     </td>
+                    
                   </tr>
+                  
                 );
               })}
             </tbody>
           </table>
+          <div className="Delete">
+          <button className="btn btn-sm btn-danger" onClick={() =>{ this.deleteAllUsers(users)}}>DeleteAll</button>
+          </div>      
         </div>
         <NavLink className="btn btn-secondary" to="/userform">
           Go to form

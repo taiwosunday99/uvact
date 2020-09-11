@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { getNames } from "country-list";
 import { createUser } from "../../store/actions/userActions";
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
+import './UserForm.css';
 
 class UserForm extends Component {
   state = {
@@ -32,7 +34,7 @@ class UserForm extends Component {
   handleSubmit = (ev) => {
     ev.preventDefault();
     this.props.createUser(this.state);
-    this.props.history.push("/users");
+    // this.props.history.push("/users");
   };
 
   render() {
@@ -103,6 +105,12 @@ class UserForm extends Component {
         <button className="btn btn-primary" type="submit">
           Save
         </button>
+        <div className="Delete">
+        <NavLink to="/users" className="btn btn-secondary">
+        Users-Lists
+      </NavLink>
+        </div>
+      
       </form>
     );
   }
